@@ -4,7 +4,7 @@
 // @version      1.0
 // @description  Redirects Reddit links to new.reddit.com
 // @author       IanKatsy
-// @match        *://*.reddit.com/*
+// @match        *://www.reddit.com/*
 // @grant        none
 // ==/UserScript==
 
