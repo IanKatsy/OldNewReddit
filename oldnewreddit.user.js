@@ -12,13 +12,13 @@
     'use strict';
 
     function needsRedirection(url) {
-        return url.includes("reddit.com") && !url.includes("new.reddit.com");
+        return url.includes("www.reddit.com") && !url.includes("new.reddit.com");
     }
 
     function redirectLink() {
         var currentURL = window.location.href;
 
-        var newURL = currentURL.replace("reddit.com", "new.reddit.com");
+        var newURL = currentURL.replace("www.reddit.com", "new.reddit.com");
 
         if (currentURL !== newURL) {
             window.location.href = newURL;
