@@ -1,21 +1,31 @@
 // ==UserScript==
-// @name         Reddit Redirector
+// @name         Redirect Reddit Links
+// @namespace    http://tampermonkey.net/
 // @version      1.0
-// @description  Redirects reddit.com links to new.reddit.com
+// @description  Redirects Reddit links to new.reddit.com
 // @author       IanKatsy
-// @match        *://reddit.com/*
+// @match        *://*.reddit.com/*
+// @grant        none
 // ==/UserScript==
 
 (function() {
     'use strict';
 
-    var currentURL = window.location.href;
+    function needsRedirection(url) {
+        return url.includes("reddit.com") && !url.includes("new.reddit.com");
+    }
 
-    // Check if the URL already starts with "new.reddit.com"
-    if (!currentURL.startsWith("https://new.reddit.com") && !currentURL.startsWith("http://new.reddit.com")) {
-        var newURL = currentURL.replace('reddit.com', 'new.reddit.com');
+    function redirectLink() {
+        var currentURL = window.location.href;
 
-        // Redirect
-        window.location.replace(newURL);
+        var newURL = currentURL.replace("reddit.com", "new.reddit.com");
+
+        if (currentURL !== newURL) {
+            window.location.href = newURL;
+        }
+    }
+
+    if (needsRedirection(window.location.href)) {
+        redirectLink();
     }
 })();
