@@ -12,7 +12,7 @@
     'use strict';
 
     function needsRedirection(url) {
-        return url.includes("www.reddit.com") && !url.includes("new.reddit.com") && !url.includes("media.reddit.com");
+        return url.includes("www.reddit.com") && !url.includes("new.reddit.com") && !url.includes("www.reddit.com/media");
     }
 
     function redirectLink() {
